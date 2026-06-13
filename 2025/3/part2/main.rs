@@ -18,13 +18,10 @@ fn main() {
             let mut l: [usize; 12] = [0; 12];
             let mut lidx: usize = 0;
 
-            // println!("{:?}", nums);
             'out: loop {
                 let r = if lidx == 0 { l[0] } else { l[lidx - 1] + 1 };
 
-                // println!("{:?}..={:?}", r, nums.len() - 12 + lidx);
                 for s in r..=nums.len() - 12 + lidx {
-                    // println!("{:?} >= {:?}", nums[s], nums[l[lidx]]);
                     if s == r {
                         l[lidx] = s;
                     } else if nums[s] > nums[l[lidx]] {
@@ -40,12 +37,9 @@ fn main() {
             }
 
             for n in 0..l.len() {
-                // print!("{:?}", nums[l[n]]);
                 total += nums[l[n]] as u64 * 10_u64.pow(11 - (n as u32));
             }
         }
-
-        // println!();
     }
 
     println!("{:?}", total);
